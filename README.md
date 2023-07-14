@@ -1,3 +1,1 @@
-# Paiza
-# Paiza
-# Paiza
+# Paiza用のリポジトリ
