@@ -1,1 +1,2 @@
 # Paiza用のリポジトリ
+Paizaが回答を公開している事もあり、PrivateからPublicに変更
