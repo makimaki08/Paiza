@@ -1,8 +1,9 @@
-student_num,attendance_num = map(int, input().split())
-student_arr = {(x, y) for x, y in [input().split() for _ in range(student_num)]}
+student_num,attendance = map(int, input().split())
+student_arr = {}
 
-for _ in range(attendance_num):
-	input_line = input()
-	for num, ID in student_arr:
-		if num == input_line:
-			print(ID)
+for _ in range(student_num):
+	input_arr = input().split()
+	student_arr[int(input_arr[0])] = input_arr[1]
+
+for _ in range(attendance):
+	print(student_arr.get(int(input())))
