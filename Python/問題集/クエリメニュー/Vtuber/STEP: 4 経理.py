@@ -4,14 +4,13 @@ departments = {input(): [] for _ in range(N)}
 
 for i in range(K):
 	department_name, order_id, fee = input().split()
-	departments[department_name].append([order_id, int(fee)])
+	departments[department_name].append((order_id, int(fee)))
 
-print(departments)
-print(departments.items())
+# print(departments)
+# print(departments.items())
 
-# for department in departments:
-# 	print(department)
-# 	for order_id, receipt_arr in departments.items():
-# 		if(department == receipt_arr[0]):
-# 			print(order_id, receipt_arr[1])
-# 	print("-----")
+for department, receipts in departments.items():
+	print(department)
+	for order_id, fee in receipts:
+		print(order_id, fee)
+	print("-----")
