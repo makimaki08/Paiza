@@ -19,3 +19,11 @@ Pythonテクニック
 		A[l]+...+A[r] = (A[0]+...A[r]) - (A[0]+...A[l-1]) = S[r]-S[l-1]
 		の関係より、累積和 S を前もって計算しておけば、以上の関係から区間 l,r の和を O(1) で求めることができるので
 		全体の計算量を O(N) にできます。
+
+	2次元配列の0パディング
+		式
+			numpy.pad(array, pad_width, mode='constant', **kwargs)
+		例（2次元配列の、左端＋上部を0パディング）
+			numpy.pad(array, ((1, 0), (1, 0)))
+		参考資料
+		https://qiita.com/kuroitu/items/51f4c867c8a44de739ec
