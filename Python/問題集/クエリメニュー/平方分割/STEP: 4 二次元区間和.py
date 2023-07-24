@@ -9,3 +9,4 @@ for _ in range(N):
 	max_x+=1
 	print(np.sum(box[min_y:max_y,min_x:max_x]))
 
+# https://paiza.jp/works/mondai/reviews/show/f98621fac444f9b894195e0967def4de
