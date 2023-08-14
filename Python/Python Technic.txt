@@ -22,3 +22,12 @@
 		numpy.pad(array, ((1, 0), (1, 0)))
 	参考資料
 	https://qiita.com/kuroitu/items/51f4c867c8a44de739ec
+
+for文の包括表記
+	式
+		n = int(input())
+		humans = [int(input()) for _ in range(n)]
+		print(humans)
+
+	解説
+		[]で全体を括り、入力値となるものを先頭に、そのあとはループの数を指定する
