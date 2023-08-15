@@ -5,31 +5,13 @@ arr = [int(input()) for _ in range(N)]
 ans = np.zeros(N)
 ans[0] = 1
 
+# for文を1つで実施しようとすると、前DPの値をうまく利用することができない
 for i in range(1,N):
 	if arr[i-1]<=arr[i]:
-		ans[i] = ans[i-1] + 1
+		ans[i] = max(1,ans[i-1] + 1)
 	else:
-		ans[i] = ans[i-1]
+		ans[i] = 1
+	print(i, ans[i])
 
 # print(ans)
-print(int(ans[N-1]))
-
-"""
-5
-100　→ 1
-102　→ 2
-101　→ 2
-91　→ 2
-199　→ 3
-
-3
-
-以下のようなパターンだと、上記では判定ができない。
-5
-100
-200
-301
-91
-199
-
-"""
+print(int(max(ans)))
