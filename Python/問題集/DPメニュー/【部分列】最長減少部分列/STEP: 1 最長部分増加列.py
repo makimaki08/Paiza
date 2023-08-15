@@ -7,11 +7,12 @@ ans[0] = 1
 
 # for文を1つで実施しようとすると、前DPの値をうまく利用することができない
 for i in range(1,N):
+	# ここでforループをもう一度回す必要あり
 	if arr[i-1]<=arr[i]:
-		ans[i] = max(1,ans[i-1] + 1)
+		ans[i] = max(1,max(ans) + 1)
 	else:
 		ans[i] = 1
-	print(i, ans[i])
+	# print(i, ans[i])
 
 # print(ans)
 print(int(max(ans)))
