@@ -2,17 +2,14 @@ import numpy as np
 
 N = int(input())
 arr = [int(input()) for _ in range(N)]
-ans = np.zeros(N)
-ans[0] = 1
+ans = np.ones(N)
 
 # for文を1つで実施しようとすると、前DPの値をうまく利用することができない
 for i in range(1,N):
 	# ここでforループをもう一度回す必要あり
-	if arr[i-1]<=arr[i]:
-		ans[i] = max(1,max(ans) + 1)
-	else:
-		ans[i] = 1
-	# print(i, ans[i])
+	for j in range(i):
+		if arr[j]<=arr[i]:
+			ans[i] = max(ans[i],ans[j] + 1)
 
 # print(ans)
 print(int(max(ans)))
