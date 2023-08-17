@@ -1,11 +1,7 @@
 import numpy as np
 
-input_arr = input().split()
-N = int(input_arr[0])
-max_weight = int(input_arr[1])
-weights = [int(input()) for i in range(N)]
-weights.insert(0,0)
-# print(weights)
+N, max_weight = map(int, input().split())
+weights = [0] + [int(input()) for i in range(N)]
 
 dp = np.zeros((N+1, max_weight+1))
 dp[0][0] = 1
