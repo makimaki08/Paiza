@@ -1,19 +1,17 @@
-n, x = map(int, input().split())
-A = [int(input()) for i in range(n)]
+import numpy as np
+mod = 10 ** 9 + 7
+N, max_weight = map(int, input().split())
+weights = [0] + [int(input()) for _ in range(N)]
+dp = np.zeros((N+1,max_weight+1))
+for i in range(N+1):
+	dp[i][0] = 1
 
-# n * x の２次元配列を作成
-dp = [[0]*(x + 1) for _ in range(n)]
+for i in range(1,N+1):
+	for j in range(max_weight+1):
+		if weights[i]<=j:
+			dp[i][j] += dp[i-1][j - weights[i]]+dp[i-1][j]
+		else:
+			dp[i][j] = dp[i-1][j]
 
-# 0列目はすべて1
-for i in range(n):
-    dp[i][0] = 1
-
-dp[0][A[0]] = 1
-    
-for i in range(1,n):
-    for j in range(x + 1):
-        if A[i] <= j:
-            dp[i][j] += dp[i - 1][j - A[i]] + dp[i -1][j]
-        else:
-            dp[i][j] = dp[i - 1][j]
-print(dp[n-1][x]%(10 ** 9 + 7))
+# print(dp)
+print(int(dp[N][max_weight]%mod))
